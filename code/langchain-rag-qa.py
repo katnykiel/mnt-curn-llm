@@ -59,4 +59,3 @@ Question: {question}"""
     )
 
     result = qa_chain.invoke({"query": query})
-    print(result["result"])
