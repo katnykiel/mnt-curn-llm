@@ -22,6 +22,7 @@ class SuppressStdout:
         sys.stdout = self._original_stdout
         sys.stderr = self._original_stderr
 
+
 loader = TextLoader("../resources/Papers.md")
 pages = loader.load_and_split()
 embeddings = OllamaEmbeddings()
