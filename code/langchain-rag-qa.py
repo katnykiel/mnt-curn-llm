@@ -3,6 +3,7 @@ import os
 from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain.chains.retrieval_qa.base import RetrievalQA
+from langchain_core.output_parsers import OutputParser
 from langchain.prompts import PromptTemplate
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.chat_models.ollama import ChatOllama
