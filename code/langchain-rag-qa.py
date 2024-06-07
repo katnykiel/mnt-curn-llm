@@ -23,7 +23,6 @@ class SuppressStdout:
         sys.stdout = self._original_stdout
         sys.stderr = self._original_stderr
 
-
 # Load the text from the sample-article.md file
 loader = TextLoader("../resources/sample-article.md")
 pages = loader.load_and_split()
