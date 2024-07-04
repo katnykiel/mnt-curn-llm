@@ -8,6 +8,12 @@ from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.chat_models.ollama import ChatOllama
 from langchain_community.document_loaders.text import TextLoader
 from langchain_community.vectorstores.faiss import FAISS
+from langchain_community.document_loaders.web_base import WebBaseLoader
+
+import pandas as pd
+df = pd.read_excel("Book1.xlsx")
+#print(df)
+urls = df["URLS"].unique()
 
 # This is just to clean up the output
 class SuppressStdout:
@@ -23,8 +29,28 @@ class SuppressStdout:
         sys.stderr = self._original_stderr
 
 
+from langchain_community.llms import Ollama
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+for url in urls:
+    print(url)
+
+
+llm = Ollama(model="llama2")
+output_parser = StrOutputParser()
+
+
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "You are a world class technical documentation writer."),
+    ("user", "{input}")
+])
+
+chain = prompt | llm 
+
+print(chain.invoke({"input": "how can langsmith help with testing?"}))
 # Load the text from the sample-article.md file
-loader = TextLoader("../resources/sample-article.md")
+#loader = TextLoader("/Users/bryan/Work/MNT-CURN/Purdue Internship/mnt-curn-llm/resources/sample-article.md")
+loader = WebBaseLoader("")
 pages = loader.load_and_split()
 
 # Load Ollama embeddings
@@ -60,7 +86,7 @@ Question: {question}"""
 
     # Create a langchain chat model using the Ollama model
     chat = ChatOllama(
-        model="llama2",
+        model="llama3",
         callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]),
     )
 

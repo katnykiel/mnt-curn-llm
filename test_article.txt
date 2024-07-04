@@ -1,0 +1,11 @@
+Text:
+INTRODUCTION
+... (content truncated)
+Source: /mnt-curn-llm/meeting-notes/Papers.md
+Date Published: June, seventh, two thousand twenty four
+Expert References:
+Name: Y.W.K., D.B.A., and Y.-G.P., Affiliation: Roles: Carried out the experiment, analyzed the data, and wrote the manuscript.
+Name: C.S.K. and Y.-M.H., Affiliation: Roles: Involved in all animal experiments and the related analysis.
+Name: E.K., D.H.L., S.-W.K., K.-H.L., and W.-Y.K., Affiliation: Roles: Involved in device fabrications.
+Name: J.-U.P., S.-Y.L., J.W.C., and H.H.J., Affiliation: Roles: Oversaw all of the research phases and revised the manuscript.
+
