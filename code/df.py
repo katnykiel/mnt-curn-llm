@@ -17,5 +17,9 @@ urls = list(df['URLS'].unique())
 experts = list(df['Experts'].unique())
 #clears the NaN from the list
 urls = [url for url in urls if pd.notna(url)]
-print(experts)
+#print(experts)
 
+grouped = df.groupby("URLS")["Experts"].apply(list).reset_index()
+list_of_lists = grouped['Experts'].tolist()
+
+print(list_of_lists)
